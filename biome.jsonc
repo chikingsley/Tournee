@@ -1,7 +1,55 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": [
-    "ultracite/core",
-    "ultracite/next"
-  ]
+  "extends": ["ultracite/core", "ultracite/next", "ultracite/react"],
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.json",
+      "!.markdownlint-cli2.jsonc",
+      "!**/playwright-report",
+      "!**/test-results",
+      "!convex/_generated",
+      "!tbrac",
+      "!docs/examples"
+    ]
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noBarrelFile": "off",
+        "noNamespaceImport": "off",
+        "useTopLevelRegex": "off"
+      },
+      "style": {
+        "useFilenamingConvention": "off",
+        "noEnum": "off",
+        "noNestedTernary": "off",
+        "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        "noEvolvingTypes": "off",
+        "noExplicitAny": "off",
+        "useAwait": "off",
+        "noAlert": "off"
+      },
+      "nursery": {
+        "noIncrementDecrement": "off",
+        "noLeakedRender": "off",
+        "noShadow": "off",
+        "useMaxParams": "off",
+        "noSyncScripts": "off"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off",
+        "noForEach": "off"
+      },
+      "correctness": {
+        "noInvalidPositionAtImportRule": "off"
+      }
+    }
+  }
 }

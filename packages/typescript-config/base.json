@@ -2,16 +2,21 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "incremental": false,
     "isolatedModules": true,
+    "jsx": "preserve",
     "lib": ["es2022", "DOM", "DOM.Iterable"],
     "module": "NodeNext",
     "moduleDetection": "force",
     "moduleResolution": "NodeNext",
     "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@/*": ["*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

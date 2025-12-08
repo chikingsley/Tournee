@@ -2,28 +2,37 @@
   "name": "tournee",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "bun@1.3.3",
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky"
+    "dev": "concurrently --names convex,turbo --prefix-colors blue,green \"bunx convex dev\" \"turbo dev\"",
+    "lint": "ultracite check && tsc --noEmit",
+    "lint:fix": "ultracite fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
+    "@types/next": "^9.0.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-router-dom": "^5.3.3",
     "@workspace/typescript-config": "workspace:*",
-    "husky": "^9.1.7",
+    "concurrently": "^9.2.1",
     "lefthook": "^2.0.8",
     "turbo": "^2.5.5",
     "typescript": "5.7.3",
     "ultracite": "6.3.9"
   },
-  "packageManager": "pnpm@10.4.1",
   "engines": {
     "node": ">=20"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "convex": "^1.30.0",
+    "convex-helpers": "^0.1.106"
+  }
 }

@@ -3,5 +3,5 @@
   "compilerOptions": {
     "strictNullChecks": true
   },
-  "exclude": ["docs/examples"]
+  "exclude": ["docs/examples", "apps/mobile"]
 }

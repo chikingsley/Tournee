@@ -37,10 +37,10 @@ test.describe("Authentication", () => {
 
     await signInWithClerk(
       page,
-      testUser?.email,
+      testUser!.email,
       TEST_PASSWORD,
       CLERK_SECRET_KEY,
-      testUser?.id
+      testUser!.id
     );
     await expect(page).toHaveURL("/dashboard");
     await expect(page.getByText("Welcome")).toBeVisible();
@@ -59,10 +59,10 @@ test.describe("Authentication", () => {
 
     await signInWithClerk(
       page,
-      testUser?.email,
+      testUser!.email,
       TEST_PASSWORD,
       CLERK_SECRET_KEY,
-      testUser?.id
+      testUser!.id
     );
     await page.goto("/");
     await expect(

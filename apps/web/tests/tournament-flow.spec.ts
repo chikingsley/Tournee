@@ -26,10 +26,10 @@ test.describe("Tournament Flow", () => {
     // 1. Sign in as organizer
     await signInWithClerk(
       page,
-      testUser?.email,
+      testUser!.email,
       TEST_PASSWORD,
       CLERK_SECRET_KEY,
-      testUser?.id
+      testUser!.id
     );
     await expect(page).toHaveURL("/dashboard");
 

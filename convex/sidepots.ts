@@ -198,12 +198,16 @@ export const generateMysteryDoublesPairings = mutation({
 
     // Pair up bowlers
     for (let i = 0; i < shuffled.length - 1; i += 2) {
-      await ctx.db.patch(shuffled[i]?._id, {
-        partnerId: shuffled[i + 1]?.bowlerId,
-      });
-      await ctx.db.patch(shuffled[i + 1]?._id, {
-        partnerId: shuffled[i]?.bowlerId,
-      });
+      const entry1 = shuffled[i];
+      const entry2 = shuffled[i + 1];
+      if (entry1 && entry2) {
+        await ctx.db.patch(entry1._id, {
+          partnerId: entry2.bowlerId,
+        });
+        await ctx.db.patch(entry2._id, {
+          partnerId: entry1.bowlerId,
+        });
+      }
     }
 
     await ctx.db.patch(args.sidepotId, { status: "in_progress" });

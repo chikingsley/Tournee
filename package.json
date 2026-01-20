@@ -6,7 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "concurrently --names convex,turbo --prefix-colors blue,green \"bunx convex dev\" \"turbo dev\"",
-    "lint": "ultracite check && tsc --noEmit",
+    "lint": "ultracite check && turbo typecheck",
     "lint:fix": "ultracite fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
